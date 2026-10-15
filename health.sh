@@ -13,3 +13,7 @@ if [ "$USAGE" -gt "$THRESHOLD" ]; then
 else
     echo "$TIME OK: $DIR at ${USAGE}%" >> "$LOG"
 fi
+
+if [ "$(wc -l < "$LOG")" -gt 500 ]; then
+    tail -n 500 "$LOG" > "$LOG.tmp" && mv "$LOG.tmp" "$LOG"
+fi

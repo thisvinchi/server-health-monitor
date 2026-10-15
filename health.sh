@@ -2,7 +2,7 @@
 set -euo pipefail
 
 DIR="${1:-/}"
-THRESHOLD=80
+THRESHOLD=90
 LOG="$HOME/health.log"
 
 USAGE=$(df "$DIR" | awk 'NR==2 {print $5}' | sed 's/%//')
